@@ -25,7 +25,7 @@ const setActiveCycleId = zod.object({
 type NewCycleFormData = zod.infer<typeof setActiveCycleId>
 
 export function Home() {
-  const { activeCycle, createCreateNewCycle, interruptCurrentCycle } =
+  const { activeCycle, createNewCycle, interruptCurrentCycle } =
     useContext(CyclesContext)
 
   const newCycleForm = useForm<NewCycleFormData>({
@@ -39,7 +39,7 @@ export function Home() {
   const { handleSubmit, watch, reset } = newCycleForm
 
   function handleCreateNewCycle(data: NewCycleFormData) {
-    createCreateNewCycle(data)
+    createNewCycle(data)
     reset()
   }
 
