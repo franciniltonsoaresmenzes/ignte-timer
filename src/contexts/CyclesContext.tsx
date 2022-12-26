@@ -46,7 +46,7 @@ export function CyclesContextProvider({
     },
     () => {
       const storedStateAsJSON = localStorage.getItem(
-        '@ignite-timer:cyclesState-1',
+        '@ignite-timer:cycles-state-1.0.0',
       )
 
       if (storedStateAsJSON) {
@@ -60,7 +60,7 @@ export function CyclesContextProvider({
 
   const [amountSecondsPassed, setAmountSecondsPassed] = useState(() => {
     if (activeCycle) {
-      return differenceInSeconds(new Date(), new Date(activeCycle?.startDate))
+      return differenceInSeconds(new Date(), new Date(activeCycle.startDate))
     }
 
     return 0
@@ -69,7 +69,7 @@ export function CyclesContextProvider({
   useEffect(() => {
     const stateJSON = JSON.stringify(cyclesState)
 
-    localStorage.setItem('@ignite-timer:cyclesState-1', stateJSON)
+    localStorage.setItem('@ignite-timer:cycles-state-1.0.0', stateJSON)
   }, [cyclesState])
 
   function setSecondsPassed(seconds: number) {
