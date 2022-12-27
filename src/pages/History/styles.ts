@@ -84,3 +84,21 @@ export const Status = styled.span<StatusProps>`
       theme[STATUS_COLOR[statusColor]]};
   }
 `
+export const ButtonTrash = styled.button`
+  width: 32px;
+  height: 32px;
+
+  background-color: ${({ theme }) => theme['gray-800']};
+  color: ${({ theme }) => theme['gray-100']};
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    color: ${({ theme }) => theme['red-500']};
+  }
+`

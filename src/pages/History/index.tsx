@@ -4,7 +4,8 @@ import ptBR from 'date-fns/locale/pt-BR'
 
 import { CyclesContext } from '../../contexts/CyclesContext'
 
-import { HistoryContainer, HistoryList, Status } from './styles'
+import { ButtonTrash, HistoryContainer, HistoryList, Status } from './styles'
+import { Trash } from 'phosphor-react'
 
 export function History() {
   const { cycles } = useContext(CyclesContext)
@@ -21,6 +22,7 @@ export function History() {
               <th>Duração</th>
               <th>Início</th>
               <th>Status</th>
+              <th></th>
             </tr>
           </thead>
 
@@ -47,6 +49,11 @@ export function History() {
                   {!cycle.finishedDate && !cycle.interruptedData && (
                     <Status statusColor="yellow">Em andamento</Status>
                   )}
+                </td>
+                <td>
+                  <ButtonTrash>
+                    <Trash size={22} />
+                  </ButtonTrash>
                 </td>
               </tr>
             ))}
