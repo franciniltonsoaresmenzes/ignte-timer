@@ -8,7 +8,7 @@ import { ButtonTrash, HistoryContainer, HistoryList, Status } from './styles'
 import { Trash } from 'phosphor-react'
 
 export function History() {
-  const { cycles } = useContext(CyclesContext)
+  const { cycles, deleteCurrentCycle } = useContext(CyclesContext)
 
   return (
     <HistoryContainer>
@@ -51,9 +51,14 @@ export function History() {
                   )}
                 </td>
                 <td>
-                  <ButtonTrash>
-                    <Trash size={22} />
-                  </ButtonTrash>
+                  {cycle.finishedDate || cycle.interruptedData ? (
+                    <ButtonTrash
+                      type="button"
+                      onClick={() => deleteCurrentCycle(cycle.id)}
+                    >
+                      <Trash size={22} />
+                    </ButtonTrash>
+                  ) : null}
                 </td>
               </tr>
             ))}

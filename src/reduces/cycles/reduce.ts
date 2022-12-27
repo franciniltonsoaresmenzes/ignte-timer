@@ -82,6 +82,17 @@ export function cyclesReducer(state: CycleState, action: any) {
         draft.cycles[currentCycleIndex].finishedDate = new Date()
       })
     }
+
+    case ActionTyper.DELETE_CURRENT_CYCLE_FINISHED: {
+      const cycleWithoutDelete = state.cycles.filter(
+        (cycle) => cycle.id !== action.payload.cycleId,
+      )
+      return {
+        cycles: cycleWithoutDelete,
+        activeCycleId: null,
+      }
+    }
+
     default:
       return state
   }
